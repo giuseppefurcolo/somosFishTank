@@ -1,0 +1,157 @@
+html {
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #60b9ee;
+  background: linear-gradient(0deg, #60b9ee 0%, #005886 100%);
+  overflow: hidden;
+}
+.bg {
+  position: absolute;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  height: 100vh;
+  /* 100% of the viewport height */
+  width: 100vw;
+  /* 100% of the viewport width */
+}
+.bg-1 {
+  background-image: url('https://giuseppefurcolo.github.io/somosFishTank/bg/bg-1.png');
+  z-index: 0;
+  opacity: 40%;
+}
+.bg-2 {
+  background-image: url('https://giuseppefurcolo.github.io/somosFishTank/bg/bg-2.png');
+  z-index: 1;
+  opacity: 30%;
+}
+.bg-3 {
+  background-image: url('https://giuseppefurcolo.github.io/somosFishTank/bg/bg-3.png');
+  z-index: 2;
+  opacity: 40%;
+}
+.bg-4 {
+  background-image: url('https://giuseppefurcolo.github.io/somosFishTank/bg/bg-4.png');
+  z-index: 100;
+}
+#fish-tank {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#bubble-field {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+@keyframes bubble {
+  0% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+.bubble {
+  position: relative;
+  box-shadow: 0px 0px 12px 5px inset #fff;
+  border-radius: 50%;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-size: 25px;
+  animation: bubble 2s ease 0s infinite normal;
+  opacity: 50%;
+}
+.bubble:after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  width: 13px;
+  height: 8px;
+  top: 10%;
+  right: 21%;
+  border-radius: 50%;
+  transform: rotateZ(30deg) scaleY(0.7);
+  filter: blur(1px);
+}
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+.bubble-rise {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  top: 100%;
+  animation: bubble-rise 2s cubic-bezier(0.3, 0, 0.7, 0.75) 0s infinite normal;
+}
+/* //FISH// */
+@keyframes fish {
+  0% {
+    transform: translate(0vw);
+  }
+  10% {
+    transform: translate(20vw, -125px);
+  }
+  20% {
+    transform: translate(40vw, -45px) rotateZ(22deg);
+  }
+  30% {
+    transform: translate(60vw, -250px);
+  }
+  40% {
+    transform: translate(80vw, -80px) rotateZ(22deg);
+  }
+  50% {
+    transform: translate(90vw, -145px);
+  }
+  51% {
+    transform: translate(90vw, -145px) rotateY(180deg);
+  }
+  60% {
+    transform: translate(80vw, -80px) rotateY(180deg) rotateZ(22deg);
+  }
+  70% {
+    transform: translate(60vw, -250px) rotateY(180deg);
+  }
+  80% {
+    transform: translate(40vw, -45px) rotateY(180deg) rotateZ(22deg);
+  }
+  90% {
+    transform: translate(20vw, -125px) rotateY(180deg);
+  }
+  99% {
+    transform: translate(0vw) rotateY(180deg) rotateZ(22deg);
+  }
+  100% {
+    transform: translate(0vw);
+  }
+}
+.fish {
+  position: absolute;
+}
+#fullscreenButton {
+  z-index: 1000;
+  position: absolute;
+  right: 0;
+}
