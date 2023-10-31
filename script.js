@@ -41,12 +41,9 @@ var fishCount = 10;
 var fishField = document.getElementById("fish-field");
 
 for (var i = 0; i < fishCount; i++) {
-  var randNumf = Math.floor(Math.random() * 20) + 1;
-  var min = 10;
-  var max = 90;
-  var fishH = Math.floor(Math.random() * (max - min + 1)) + min;
+  var fishH = Math.floor(Math.random() * (90 - 10 + 1)) + 10;
   var delay = (Math.floor(Math.random() * 100) + 1) / 20;
-  var animF = 1 + 1.2 * randNumf;
+  var animF = Math.floor(Math.random() * 30) + 5;
   var minF = 2;
   var maxF = 100;
   var ranF = Math.floor(Math.random() * (maxF - minF + 1)) + minF;
@@ -59,11 +56,7 @@ for (var i = 0; i < fishCount; i++) {
   imgEl.src = "fish/" + i + ".png";
 
   // Set the width and height of the image
-  imgEl.width = window.innerWidth * 0.13; // Set the desired width in pixels
-  
- 
-  
-  
+  imgEl.width = window.innerWidth * 0.13; // Set the desired width in pixels  
 
   // Create a closure to capture the correct fishEl for this imgEl
   imgEl.onerror = (function (elementToHide) {
@@ -74,6 +67,9 @@ for (var i = 0; i < fishCount; i++) {
 
   // Append the <img> element to the fishEl
   fishEl.appendChild(imgEl);
+
+
+  console.log(animF);
 
   fishEl.style.animation =
     "fish " +
