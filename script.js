@@ -56,7 +56,7 @@ for (var i = 0; i < fishCount; i++) {
 
   // Create an <img> element
   var imgEl = document.createElement("img");
-  imgEl.src = "https://giuseppefurcolo.github.io/somosFishTank/fish-A/" + i + ".png";
+  imgEl.src = "fish/" + i + ".png";
 
   // Set the width and height of the image
   imgEl.width = window.innerWidth * 0.13; // Set the desired width in pixels
@@ -112,3 +112,17 @@ for (var i = 0; i < fishCount; i++) {
         if (!document.fullscreenEnabled && !document.mozFullScreenEnabled && !document.webkitFullscreenEnabled && !document.msFullscreenEnabled) {
             hideButton();
         }
+
+// Function to refresh the page
+function refreshPage() {
+  location.reload();
+}
+
+// Event listener to trigger the refresh function when a keyboard shortcut is pressed
+window.addEventListener('keydown', function(event) {
+  // Check if the key combination matches "Command + E" on macOS or "Ctrl + E" on Windows
+  if ((event.metaKey || event.ctrlKey) && event.key === 'e') {
+    event.preventDefault(); // Prevent the default behavior (e.g., opening the browser's find dialog)
+    refreshPage(); // Call the refresh function
+  }
+});
