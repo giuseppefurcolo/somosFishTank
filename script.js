@@ -69,7 +69,7 @@ for (var i = 0; i < fishCount; i++) {
   fishEl.appendChild(imgEl);
 
 
-  console.log(animF);
+  //console.log(animF);
 
   fishEl.style.animation =
     "fish " +
