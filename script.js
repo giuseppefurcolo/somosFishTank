@@ -68,9 +68,6 @@ for (var i = 0; i < fishCount; i++) {
   // Append the <img> element to the fishEl
   fishEl.appendChild(imgEl);
 
-
-  //console.log(animF);
-
   fishEl.style.animation =
     "fish " +
     animF +
@@ -83,31 +80,30 @@ for (var i = 0; i < fishCount; i++) {
 }
 
 // FULL SCREEN
+const fullscreenButton = document.getElementById("fullscreenButton");
 
-        const fullscreenButton = document.getElementById("fullscreenButton");
+fullscreenButton.addEventListener("click", function() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().then(hideButton);
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen().then(hideButton);
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        document.documentElement.webkitRequestFullscreen().then(hideButton);
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen().then(hideButton);
+    } else {
+        hideButton();
+    }
+});
 
-        fullscreenButton.addEventListener("click", function() {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen().then(hideButton);
-            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-                document.documentElement.mozRequestFullScreen().then(hideButton);
-            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                document.documentElement.webkitRequestFullscreen().then(hideButton);
-            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-                document.documentElement.msRequestFullscreen().then(hideButton);
-            } else {
-                hideButton();
-            }
-        });
+function hideButton() {
+    fullscreenButton.style.display = "none";
+}
 
-        function hideButton() {
-            fullscreenButton.style.display = "none";
-        }
-
-        // Check if fullscreen is not supported and hide the button
-        if (!document.fullscreenEnabled && !document.mozFullScreenEnabled && !document.webkitFullscreenEnabled && !document.msFullscreenEnabled) {
-            hideButton();
-        }
+// Check if fullscreen is not supported and hide the button
+if (!document.fullscreenEnabled && !document.mozFullScreenEnabled && !document.webkitFullscreenEnabled && !document.msFullscreenEnabled) {
+    hideButton();
+}
 
 // Function to refresh the page
 function refreshPage() {
