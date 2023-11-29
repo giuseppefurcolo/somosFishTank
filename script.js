@@ -37,7 +37,7 @@ for (var i = 0; i < bubbleCount; i++) {
 }
 
 //FISH
-var fishCount = 10;
+var fishCount = 15;
 var fishField = document.getElementById("fish-field");
 
 for (var i = 0; i < fishCount; i++) {
